@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class Admin extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class Admin extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\AdminFactory> */
     use HasFactory;
-
+    public $table = "admin";
     protected $fillable = [
         'email',
         'user_name',
@@ -21,4 +21,15 @@ class Admin extends Model
         'status',
         'flag_delete',
     ];
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
 }

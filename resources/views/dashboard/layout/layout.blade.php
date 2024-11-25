@@ -20,13 +20,13 @@
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            @include('admin.layout.partials.header')
+            @include('dashboard.layout.partials.header')
         </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            @include('admin.layout.partials.sidebar_left')
+            @include('dashboard.layout.partials.sidebar_left')
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
@@ -36,7 +36,7 @@
         <!-- /.content-wrapper -->
 
         <footer class="main-footer">
-           @include('admin.layout.partials.footer')
+           @include('dashboard.layout.partials.footer')
         </footer>
 
         <!-- Control Sidebar -->

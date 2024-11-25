@@ -9,6 +9,7 @@ class Product extends Model
 {
     /** @use HasFactory<\Database\Factories\ProductFactory> */
     use HasFactory;
+    public $table = "product";
     protected $fillable = [
         'user_id',
         'sku',

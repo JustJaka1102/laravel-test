@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('last_name', 100)->nullable(false);
             $table->string('password')->nullable(false);
             $table->string('reset_password')->nullable();
-            $table->tinyInteger('status')->nullable(false);
+            $table->tinyInteger('status')->nullable(false)->default('2');
             $table->boolean('flag_delete')->default(false);
             $table->timestamps();
         });
