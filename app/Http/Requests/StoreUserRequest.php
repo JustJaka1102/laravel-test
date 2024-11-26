@@ -11,7 +11,7 @@ class StoreUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'first_name' => ['required', 'max:50'],
+            'last_name' => ['required', 'max:50'],
+            'user_name' => ['required', 'max:100'],
+            'email' => ['required', 'max:100', 'email', 'unique:users'],
+            'birthday' => [
+                'required',
+                'date',
+                'before_or_equal:' . now()->subYears(18)->format('Y-m-d'),
+            ],
+            'password' => ['required'],
         ];
     }
 }

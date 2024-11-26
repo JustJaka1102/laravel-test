@@ -28,7 +28,7 @@
                 <form action="{{ route('register') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Fist name" name="first_name">
+                        <input type="text" class="form-control" placeholder="Fist name" name="first_name" value="{{ old('first_name') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -41,7 +41,7 @@
                         </div>
                     @enderror
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Last name" name="last_name">
+                        <input type="text" class="form-control" placeholder="Last name" name="last_name" value="{{ old('last_name') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -54,7 +54,7 @@
                         </div>
                     @enderror
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="User name" name="user_name">
+                        <input type="text" class="form-control" placeholder="User name" name="user_name" value="{{ old('user_name') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -67,7 +67,7 @@
                         </div>
                     @enderror
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email" name="email">
+                        <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>

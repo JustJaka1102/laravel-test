@@ -13,9 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(15);
-
-        return view('dashboard.dashboard', ['users'=>$users]);
+        $users = User::latest()->paginate(15);
+        return view('dashboard.content.users_list', ['users' => $users]);
     }
 
     /**
@@ -23,7 +22,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.adduser');
     }
 
     /**
@@ -31,7 +30,12 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        //
+        //add user
+        User::create($request->validated());
+
+        //redirect
+        return redirect()->route('dashboard.users')
+            ->with('success', 'Product created successfully.');
     }
 
     /**
@@ -47,7 +51,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('dashboard.content.user_edit',compact('user'));
     }
 
     /**
@@ -55,14 +59,19 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $user->update($request->validated());
+          
+        return redirect()->route('dashboard.users')
+                        ->with('success','Product updated successfully');
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+           
+        return redirect()->route('dashboard.users')
+                        ->with('success','Product deleted successfully');
     }
 }

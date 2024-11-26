@@ -15,4 +15,11 @@ Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 Route::view('/register','auth.register')->name('register');
 Route::post('/register',[AuthController::class,'register']);
 
-Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
+Route::view('/dashboard','dashboard.dashboard')->name('dashboard');
+
+Route::get('/dashboard/users', [UserController::class, 'index'])->name('dashboard.users');
+
+Route::post('/dashboard/user_add',[UserController::class,'store']);
+Route::view('/dashboard/user_add','dashboard.content.user_add')->name('dashboard.user_add');
+
+Route::resource('users', UserController::class);

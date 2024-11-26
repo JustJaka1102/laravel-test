@@ -20,39 +20,8 @@
     <!-- Main content -->
     <section class="content">
         <div class="container mt-5">
-            <h1 class="mb-4">Danh sách người dùng</h1>
-        
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Email</th>
-                        <th>Tên người dùng</th>
-                        <th>Ngày tạo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($users as $user)
-                        <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->user_name }}</td>
-                            <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="4" class="text-center">Không có người dùng nào.</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        
-            <!-- pani -->
-            <div class="d-flex justify-content-center">
-                {{ $users->links('pagination::bootstrap-5') }}
-            </div>
+            <h1 class="mb-4">Welcome to dashboard</h1>
         </div>
-
     </section>
     <!-- /.content -->
 @endsection
