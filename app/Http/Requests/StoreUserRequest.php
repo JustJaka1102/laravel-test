@@ -32,6 +32,7 @@ class StoreUserRequest extends FormRequest
                 'before_or_equal:' . now()->subYears(18)->format('Y-m-d'),
             ],
             'password' => ['required'],
+            'avatar' => 'required|image|mimes:jpg,jpeg,png|max:3072',
         ];
     }
 }

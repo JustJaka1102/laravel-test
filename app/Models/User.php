@@ -20,6 +20,7 @@ class User extends Authenticatable
         'reset_password',
         'status',
         'flag_delete',
+        'avatar',
     ];
     protected $hidden = [
         'password',

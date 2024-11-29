@@ -32,6 +32,7 @@ class UpdateUserRequest extends FormRequest
                 'date',
                 'before_or_equal:' . now()->subYears(18)->format('Y-m-d'),
             ],
+            'avatar' => ['required','image','mimes:jpg,jpeg,png','max:3072'],
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Carbon;
 
 class StoreProductRequest extends FormRequest
 {
@@ -22,7 +23,19 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'stock' => 'required|integer|min:0|max:10000',
+            'expired_at' => 'nullable|date|after:' . Carbon::now(),
+            'avatar' => 'required|file|max:3072', // max:3072 tương ứng 3MB
+            'sku' => [
+                'required',
+                'string',
+                'min:10',
+                'max:20',
+                'regex:/^[a-zA-Z0-9]+$/',
+                'unique:products,sku',
+            ],
+            'category_id' => 'required|exists:categories,id',
         ];
     }
 }

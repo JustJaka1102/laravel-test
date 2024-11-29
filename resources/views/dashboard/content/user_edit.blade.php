@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         <li class="breadcrumb-item active">User</li>
                     </ol>
                 </div>
@@ -25,7 +25,7 @@
                     <h4>Edit User</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('users.update', $user->id) }}" method="POST">
+                    <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -78,6 +78,18 @@
                                 class="form-control @error('birthday') is-invalid @enderror"
                                 value="{{ old('birthday', $user->birthday) }}">
                             @error('birthday')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <!-- avata -->
+                        <div class="mb-3">
+                            <label for="avatar" class="form-label">Update avatar:</label>
+                            <div class="">
+                                <img src="{{ $user->avatar ? asset('storage/user/' . $user->avatar) : asset('user/Sample_User_Icon.png') }}"
+                                    alt="User Avatar" style="width: 100px; height: 100px; border-radius: 50%;">
+                                <input type="file" name="avatar" id="avatar" accept="image/*" required>
+                            </div>
+                            @error('avatar')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>

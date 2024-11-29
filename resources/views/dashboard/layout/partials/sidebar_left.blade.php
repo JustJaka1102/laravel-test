@@ -1,7 +1,7 @@
     <!-- Brand Logo -->
-    <a href="{{route('dashboard')}}" class="brand-link">
-        <img src="{{ asset('admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-            style="opacity: .8">
+    <a href="{{ route('dashboard') }}" class="brand-link">
+        <img src="{{ asset('admin/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
+            class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -10,7 +10,8 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+                <img src="{{ asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2"
+                    alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block">Alexander Pierce</a>
@@ -37,7 +38,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{route('dashboard.users')}}" class="nav-link">
+                    <a href="{{ route('dashboard.users') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
@@ -46,15 +47,61 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('dashboard.users')}}" class="nav-link">
+                            <a href="{{ route('dashboard.users') }}" class="nav-link">
                                 <i class=" 	fas fa-user-alt nav-icon"></i>
                                 <p>Users list</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route("dashboard.user_add")}}" class="nav-link">
+                            <a href="{{ route('dashboard.user_add') }}" class="nav-link">
                                 <i class=" 	fas fa-user-alt nav-icon"></i>
                                 <p>Add new User</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.categories') }}" class="nav-link">
+                        <i class="nav-icon fas fa-square"></i>
+                        <p>
+                            Categories
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('dashboard.categories') }}" class="nav-link">
+                                <i class=" 	far fa-square nav-icon"></i>
+                                <p>Categories list</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('dashboard.category_add') }}" class="nav-link">
+                                <i class=" 	far fa-square nav-icon"></i>
+                                <p>Add new category</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.categories') }}" class="nav-link">
+                        <i class="nav-icon fas fa-boxes"></i>
+                        <p>
+                            Categories
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('dashboard.categories') }}" class="nav-link">
+                                <i class=" 	fas fa-box nav-icon"></i>
+                                <p>Product List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('dashboard.category_add') }}" class="nav-link">
+                                <i class=" 	fas fa-box nav-icon"></i>
+                                <p>Product</p>
                             </a>
                         </li>
                     </ul>

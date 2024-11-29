@@ -27,6 +27,7 @@ class UserFactory extends Factory
             'reset_password' => null,
             'status' => $this->faker->randomElement([0, 1, 3]),
             'flag_delete' => false,
+            'avatar' => null,
         ];
     }
 }

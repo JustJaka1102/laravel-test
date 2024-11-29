@@ -13,9 +13,10 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Product_category::latest()->paginate(15);
+        return view('dashboard.content.categories_list', ['categories' => $categories]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */
@@ -29,7 +30,9 @@ class ProductCategoryController extends Controller
      */
     public function store(StoreProduct_categoryRequest $request)
     {
-        //
+        Product_category::create($request->validated());
+        return redirect()->route('dashboard.categories')
+            ->with('success', 'Product created successfully.');
     }
 
     /**
@@ -37,7 +40,7 @@ class ProductCategoryController extends Controller
      */
     public function show(Product_category $product_category)
     {
-        //
+        
     }
 
     /**
@@ -45,7 +48,11 @@ class ProductCategoryController extends Controller
      */
     public function edit(Product_category $product_category)
     {
-        //
+        $categories = Product_category::whereNull('parent_id')->get();
+        return view('dashboard.content.categories_edit', [
+            'categories' => $categories,
+            'product_category' => $product_category,
+        ]);
     }
 
     /**
@@ -53,7 +60,9 @@ class ProductCategoryController extends Controller
      */
     public function update(UpdateProduct_categoryRequest $request, Product_category $product_category)
     {
-        //
+        $product_category->update($request->validated());
+        return redirect()->route('dashboard.categories')
+            ->with('success', 'Product updated successfully');
     }
 
     /**
@@ -62,5 +71,10 @@ class ProductCategoryController extends Controller
     public function destroy(Product_category $product_category)
     {
         //
+    }
+
+    public function select(){
+        $categories = Product_category::whereNull('parent_id')->get();
+        return view('dashboard.content.category_add',['categories' => $categories]);
     }
 }

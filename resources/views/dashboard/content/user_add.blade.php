@@ -9,8 +9,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="{{route('dashboard.users')}}">User</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard.users') }}">User</a></li>
                         <li class="breadcrumb-item active">Add_User</li>
                     </ol>
                 </div>
@@ -26,11 +26,11 @@
                     <h4>Create User</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('dashboard.user_add') }}" method="POST">
+                    <form action="{{ route('dashboard.user_add') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <!-- Username -->
                         <div class="mb-3">
-                            <label for="user_name" class="form-label">Last Name</label>
+                            <label for="user_name" class="form-label">UserName</label>
                             <input type="text" name="user_name" id="user_name"
                                 class="form-control @error('last_name') is-invalid @enderror" value="{{ old('user_name') }}"
                                 required>
@@ -53,8 +53,8 @@
                         <div class="mb-3">
                             <label for="first_name" class="form-label">First Name</label>
                             <input type="text" name="first_name" id="first_name"
-                                class="form-control @error('first_name') is-invalid @enderror" value="{{ old('first_name') }}"
-                                required>
+                                class="form-control @error('first_name') is-invalid @enderror"
+                                value="{{ old('first_name') }}" required>
                             @error('firstname')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -89,6 +89,12 @@
                             @error('password')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                        </div>
+
+                        {{-- avata --}}
+                        <div class="mb-3">
+                            <label for="avatar" class="form-label">Update avatar:</label>
+                            <input type="file" name="avatar" id="avatar" class="form-control" accept="image/*" required>
                         </div>
                         <!-- Submit Button -->
                         <div class="d-grid">
