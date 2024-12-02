@@ -20,4 +20,8 @@ class Product extends Model
         'category_id',
         'flag_delete',
     ];
+    public function category()
+    {
+        return $this->belongsTo(Product_category::class, 'category_id');
+    }
 }

@@ -12,7 +12,7 @@ class StoreProductRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,16 +26,16 @@ class StoreProductRequest extends FormRequest
             'name' => 'required|string|max:255',
             'stock' => 'required|integer|min:0|max:10000',
             'expired_at' => 'nullable|date|after:' . Carbon::now(),
-            'avatar' => 'required|file|max:3072', // max:3072 tương ứng 3MB
+            'avatar' => 'required|file|max:3072', 
             'sku' => [
                 'required',
                 'string',
                 'min:10',
                 'max:20',
                 'regex:/^[a-zA-Z0-9]+$/',
-                'unique:products,sku',
+                'unique:product,sku',
             ],
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'required|exists:product_category,id',
         ];
     }
 }

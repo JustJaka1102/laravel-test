@@ -84,24 +84,24 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('dashboard.categories') }}" class="nav-link">
+                    <a href="{{ route('dashboard.products') }}" class="nav-link">
                         <i class="nav-icon fas fa-boxes"></i>
                         <p>
-                            Categories
+                            Products
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('dashboard.categories') }}" class="nav-link">
+                            <a href="{{ route('dashboard.products') }}" class="nav-link">
                                 <i class=" 	fas fa-box nav-icon"></i>
                                 <p>Product List</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('dashboard.category_add') }}" class="nav-link">
+                            <a href="{{ route('dashboard.product_add') }}" class="nav-link">
                                 <i class=" 	fas fa-box nav-icon"></i>
-                                <p>Product</p>
+                                <p>Add new product</p>
                             </a>
                         </li>
                     </ul>

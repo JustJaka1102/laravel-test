@@ -32,7 +32,7 @@ class ProductCategoryController extends Controller
     {
         Product_category::create($request->validated());
         return redirect()->route('dashboard.categories')
-            ->with('success', 'Product created successfully.');
+            ->with('success', 'Product category created successfully.');
     }
 
     /**
@@ -62,7 +62,7 @@ class ProductCategoryController extends Controller
     {
         $product_category->update($request->validated());
         return redirect()->route('dashboard.categories')
-            ->with('success', 'Product updated successfully');
+            ->with('success', 'Product category updated successfully');
     }
 
     /**
@@ -70,11 +70,18 @@ class ProductCategoryController extends Controller
      */
     public function destroy(Product_category $product_category)
     {
-        //
+        $product_category->delete();
+
+        return redirect()->route('dashboard.categories')
+            ->with('success', 'Product category deleted successfully');
     }
 
     public function select(){
         $categories = Product_category::whereNull('parent_id')->get();
         return view('dashboard.content.category_add',['categories' => $categories]);
+    }
+
+    public function get(){
+        
     }
 }

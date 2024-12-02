@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +28,16 @@ Route::post('/dashboard/category_add', [ProductCategoryController::class, 'store
 Route::get('/dashboard/category_add', [ProductCategoryController::class, 'select'])->name('dashboard.category_add');
 
 
+
+
 Route::resources([
     'users' => UserController::class,
     'product_category' => ProductCategoryController::class,
+    'products' => ProductController::class,
 ], );
+
+
+
+Route::get('/dashboard/products', [ProductController::class, 'index'])->name('dashboard.products');
+Route::post('/dashboard/product_add', [ProductController::class, 'store']);
+Route::get('/dashboard/product_add', [ProductController::class, 'create'])->name(name: 'dashboard.product_add');

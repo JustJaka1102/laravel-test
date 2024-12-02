@@ -50,7 +50,7 @@ class UserController extends Controller
         ]);
         //redirect
         return redirect()->route('dashboard.users')
-            ->with('success', 'Product created successfully.');
+            ->with('success', 'User created successfully.');
     }
 
     /**
@@ -92,7 +92,7 @@ class UserController extends Controller
                 'avatar' => $fileName,
             ]);
         return redirect()->route('dashboard.users')
-            ->with('success', 'Product updated successfully');
+            ->with('success', 'User updated successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -102,6 +102,6 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('dashboard.users')
-            ->with('success', 'Product deleted successfully');
+            ->with('success', 'User deleted successfully');
     }
 }
